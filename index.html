@@ -15,45 +15,11 @@ title: Mike Turquette
 		</header>
 
 		<article id="twoway">
+			{% for post in site.posts %}
 			<section class="wrapper">
-				<h3>A three-way split</h3>
-				<p>
-					These two blocks of text will float side by side with some empty columns on the sides on large screens. On medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked vertically.
-				</p>
+				{{ post.content }}
 			</section>
-			<section class="wrapper">
-				<h3>By the way</h3>
-				<p>
-					If you're viewing this page on an iOS device, it might zoom in wonkily when you rotate your device. This is because of <a href="http://filamentgroup.com/examples/iosScaleBug/">a Mobile Safari bug</a>.
-				</p>
-			</section>
-			<section class="wrapper">
-				<h3>Todo</h3>
-				<p>
-					<s>deferred.io - should use mturquette.github.com as backing store hosting</s>
-				</p>
-				<p>
-					diaspora - should run Tip of Tree, probably bad up-time, uses deferred.io domain
-				</p>
-				<p>
-					<s>tumblr - instrumentation should be linked at mturquette.github.com/blog or deferred.io/blog</s>
-				</p>
-				<p>
-					blog - finalize css/look-n-feel, test on mobile devices & put up some damn content
-				</p>
-				<p>
-					livefyre - switch from disquse to livefyre for comments
-				</p>
-				<p>
-					<s>golden grid system - create static front page using GGS.  Maybe update tumblr's 'spanr' theme to use GGS also?</s>
-				</p>
-				<p>
-					social networking tie-ins - should I pull down data from LinkedIn, Ohloh, twitter, facebook and googleplus?  Or I could just link to all of it through my about.me page...
-				</p>
-				<p>
-					<s>jekyll - figure out the static blog stuff that is used by pages.github.com</s>
-				</p>
-			</section>
+			{% endfor %}
 		</article>
 
 		<!-- Demo code ends -->
