@@ -8,5 +8,6 @@ title: Todo
 * blog - finalize css/look-n-feel, test on mobile devices & put up some damn content
 * livefyre - switch from disquse to livefyre for comments
 * -golden grid system - create static front page using GGS.  Maybe update tumblr's 'spanr' theme to use GGS also?-
+** should I use "Frameless":http://framelessgrid.com/ instead?
 * social networking tie-ins - should I pull down data from LinkedIn, Ohloh, twitter, facebook and googleplus?
 ** Or I could just link to all of it through my about.me page...
