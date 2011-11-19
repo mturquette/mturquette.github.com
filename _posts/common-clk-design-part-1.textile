@@ -1,0 +1,173 @@
+---
+layout: post
+title: common clk design goals, part 1
+---
+
+My current focus in "Linaro":http://linaro.org is to upstream the common struct clk effort, initially "kicked off":https://lkml.org/lkml/2011/5/20/81 by Jeremy Kerr.  Since Jeremy's patches hit the list I've made some pretty sweeping changes to them and I wanted to capture my thought processes here.  This post focuses on two aspects of my changes: removal of struct clk_hw and exposing some of the common clk frameworks internal functions.  The two go hand in hand as you will see below.
+
+The most notable change I made from Jeremy's patchset is the removal of struct clk_hw.  I thought that struct clk_hw was a fun bit of abstraction at first and I brought up my "PandaBoard"http://pandaboard.org/ using it.  I should digress here and state that the OMAP clk data has not yet been migrated to "DeviceTree":http://devicetree.org/Main_Page and is instead defined in some large C files in the kernel source.  This required a forward declaration which I and several others abhorred:
+
+@static struct clk dpll_abe_ck;
+@
+@static const struct clk_hw_ops dpll_abe_ck_ops = {
+	.enable		= &omap3_noncore_dpll_enable,
+	.disable	= &omap3_noncore_dpll_disable,
+	.recalc_rate	= &omap3_dpll_recalc,
+	.round_rate	= &omap2_dpll_round_rate,
+	.set_rate	= &omap3_noncore_dpll_set_rate,
+	.get_parent	= &omap2_init_dpll_parent,
+};
+@
+@static struct clk_hw_omap dpll_abe_ck_hw = {
+	.hw = {
+		.clk	= &dpll_abe_ck,
+	},
+	.parent		= &abe_dpll_refclk_mux_ck,
+	.dpll_data	= &dpll_abe_dd,
+	.allow_idle	= &omap3_dpll_allow_idle,
+	.deny_idle	= &omap3_dpll_deny_idle,
+};
+@
+@static struct clk dpll_abe_ck = {
+	.name		= "dpll_abe_ck",
+	.ops		= &dpll_abe_ck_ops,
+	.hw		= &dpll_abe_ck_hw.hw,
+	.parent		= &abe_dpll_refclk_mux_ck,
+};@
+
+The forward declaration itself is not a deal breaker, but it made me start to wonder if I was on the wrong path.  struct clk_hw is only necessary if I intend to hide the details of the common struct clk definition away from the platform- and device-specific clk hardware definitions.  This is madness.  The clk hardware implementations must know some details of the common struct clk, and on some occasions even must have access to it's internal APIs.
+
+Now before you go grabbing the pitchforks and the torches, take a look at the .set_rate function below.  This implements clk_set_rate for most of the PLLs on OMAP3 & OMAP4.  The areas of interest are highlighted for convenience:
+
+@int omap3_noncore_dpll_set_rate(struct clk_hw *hw, unsigned long rate,
+		unsigned long *parent_rate)
+{
+	struct clk_hw_omap *oclk;
+	struct clk *new_parent = NULL;
+	u16 freqsel = 0;
+	struct dpll_data *dd;
+	int ret;
+@
+@	if (!hw || !rate)
+		return -EINVAL;
+@
+@	oclk = to_clk_hw_omap(hw);
+	dd = oclk->dpll_data;
+@
+@	if (!dd)
+		return -EINVAL;
+@
+@	if (rate == omap2_get_dpll_rate(hw))
+		return 0;
+@
+@	/*
+	 * Ensure both the bypass and ref clocks are enabled prior to
+	 * doing anything; we need the bypass clock running to reprogram
+	 * the DPLL.
+	 */
+	__clk_prepare(dd->clk_bypass);
+	__clk_enable(dd->clk_bypass);
+	__clk_prepare(dd->clk_ref);
+	__clk_enable(dd->clk_ref);
+@
+@	if (dd->clk_bypass->rate == rate &&
+		(dd->modes & (1 << DPLL_LOW_POWER_BYPASS))) {
+		pr_debug("%s: %s entering bypass\n", __func__, hw->clk->name);
+@
+@		ret = _omap3_noncore_dpll_bypass(hw);
+		if (!ret)
+			new_parent = dd->clk_bypass;
+	} else {
+		if (dd->last_rounded_rate != rate)
+			omap2_dpll_round_rate(hw, rate);
+@
+@		if (dd->last_rounded_rate == 0)
+			return -EINVAL;
+@
+@		/* No freqsel on OMAP4 and OMAP3630 */
+		if (!cpu_is_omap44xx() && !cpu_is_omap3630()) {
+			freqsel = _omap3_dpll_compute_freqsel(hw,
+@						dd->last_rounded_n);
+@			if (!freqsel)
+				WARN_ON(1);
+		}
+@
+@		pr_debug("%s: locking %s's rate to %lu\n", __func__,
+				hw->clk->name, rate);
+@
+@		ret = omap3_noncore_dpll_program(hw, dd->last_rounded_m,
+						 dd->last_rounded_n, freqsel);
+		if (!ret)
+			new_parent = dd->clk_ref;
+	}
+	if (!ret) {
+		/*
+		 * Switch the parent clock in the hierarchy, and make sure
+		 * that the new parent's usecount is correct.  Note: we
+		 * enable the new parent before disabling the old to avoid
+		 * any unnecessary hardware disable->enable transitions.
+		 */
+		if (hw->clk->enable_count) {
+			__clk_enable(new_parent);
+			__clk_disable(hw->clk->parent);
+		}
+		__clk_reparent(hw->clk, new_parent);
+	}
+	__clk_disable(dd->clk_ref);
+	__clk_unprepare(dd->clk_ref);
+	__clk_disable(dd->clk_bypass);
+	__clk_unprepare(dd->clk_bypass);
+@
+@	return 0;
+}
+@
+
+There are two major points I'd like to make about the above code.  First is that for the _functional correctness_ of the PLL during a rate change, it is necessary to enable the PLL's bypass clk, even if you are not _switching_ to the bypass clk as the input source.  This requires a clk_prepare/clk_enable pair before the rate change coupled with a clk_disable/clk_unprepare after we're done.  Of course clk_set_rate has already held the prepare_mutex, meaning that we must use the common clk framework's internal __clk_prepare & __clk_unprepare functions.
+
+You might be wondering, "why not call clk_prepare and clk_unprepare from outside omap3_noncore_dpll_set_rate?" and you'd be right to ask.  The problem here is twofold:
+
+*# The details of enabling the reference clk and bypass clk surely should be hidden from the caller of omap3_noncore_dpll_set_rate.  For instance a CPUfreq driver might call this function to adjust the MPU's rate.  Imagine a CPUfreq driver that adjusts the MPU's rate, which must know the details of the PLL:
+@struct clk *mpu_clk = clk_get(NULL, "omap4_dpll_mpu_ck");
+struct clk_hw_omap *oclk = to_clk_hw_omap(clk);
+struct dpll_data *dd = oclk->dpll_data;
+@
+@clk_prepare(dd->clk_ref);
+clk_prepare(dd->clk_bypass);
+clk_enable(dd->clk_ref);
+clk_enable(dd->clk_bypass);
+@
+@clk_set_rate(mpu_clk, 1000000000);
+@
+@clk_disable(dd->clk_bypass);
+clk_disable(dd->clk_ref);
+clk_unprepare(dd->clk_bypass);
+clk_unpreapre(dd->clk_ref);
+@
+
+Gross, right?  It is much nicer that the CPUfreq driver doesn't need to know nitty-gritty details about OMAP3+ PLL operation and instead can do the following:
+@struct clk *mpu_clk = clk_get(NULL, "omap4_dpll_mpu_ck");
+clk_set_rate(mpu_clk, 1000000000);
+@
+
+*# If your clk tree supports upward propagation of set_rate calls to the parent, then the above sequence is very difficult to do in a generic way.  Imagine the following sequence of an upwards propagating clk_set_rate call:
+
+@[pll]	third and final upward propagation (reprograms pll)
+  |
+  |
+  |
+[div1]	second upward propagation (changes div1's divider)
+  |
+  |
+  |
+[mux]	first upward propagation (just passing through)
+  |
+  |
+  |
+[div2]	the initial clk_set_rate(div2, 123456789) is called here
+@
+
+Calling prepare/enable and disable/unprepare for the pll's reference and bypass clks is an unfair burdern to place upon the caller of clk_set_rate (or more precisely __clk_set_rate, which is a topic for another post).  How will div1, in the midst of it's own .set_rate callback, know to enable the necessary clks for the pll above it?  This could be handled by having some .pre_propagation and .post_propagation callbacks, but that is just over-engineered.
+
+The second point concerning omap3_noncore_dpll_set_rate above is the use of __clk_reparent.  I'll admit outright that this is more contentious.  In general I do not favor having clocks reparenting themselves as a part of a .set_rate callback.  In the case of OMAP's pll's it makes sense though.  We have a low-power bypass mode that the pll can operate in, which corresponds to the input of the parent clk.   If I call clk_set_rate against a pll and set it to the same rate as that pll's bypass clk, why shouldn't I reparent it in the same operation?  Doing so saves power and gives me the clk frequency requested by the call to clk_set_rate.  In such instances I think it makes sense to allow the platform/device clk hardware code have access to __clk_reparent.
+
+Either way I'll keep any eye on this as common clk support for other SoCs starts to hit the mailing list.  This API can certainly be abused but good code review should limit that.
