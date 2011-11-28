@@ -14,3 +14,4 @@ title: Todo
 * The footer of the page should contain the git history as a way to capture edits made to it over time.
 ** e.g: http://oli.jp/2009/html5-structure1/
 * use jQwery to make the "article boxes" clickable
+** http://css-tricks.com/16-creating-clickable-divs/
