@@ -17,9 +17,11 @@ title: Mike Turquette
 		<article id="twoway">
 			{% for post in site.posts %}
 			<section class="wrapper">
+			<div class="box1">
 				{{ post.title }}
 				</br>
 				{{ post.content | strip_html | truncate:400 }}
+			</div>
 			</section>
 			{% endfor %}
 		</article>
