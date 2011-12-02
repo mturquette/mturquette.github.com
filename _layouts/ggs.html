@@ -9,15 +9,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<!-- Feel free to split the CSS into separate files, if you like. -->
-		<link rel="stylesheet" href="/ggs/GGS.css" type="text/css" /> 
-		<link rel="stylesheet" href="box.css" type="text/css" />
+		<link rel="stylesheet" href="/lib/ggs/GGS.css" type="text/css" /> 
+		<link rel="stylesheet" href="/lib/box.css" type="text/css" />
 
 		<!-- Here's Golden Gridlet, the grid overlay script. -->
-		<script type="text/javascript" src="/ggs/GGS.js"></script>
+		<script type="text/javascript" src="/lib/ggs/GGS.js"></script>
+
+		<!-- The unstoppable, indespensible jQuery -->
+		<script src="/lib/jquery.js"></script>
 
 	</head>
 
 	<body lang="en">
+
+		<a href="http://jquery.com/">jQuery</a>
+		<script src="/lib/jquery-1.7.1.js"></script>
+		<!--
+		<script>
+
+			$(document).ready(function(){
+				$("a").click(function(event){
+					alert("Thanks for visiting!");
+				});
+			});
+
+		</script>
+		-->
+
+		<!--
+		<script>
+			$(document).delegate("div", "click", function() {
+				window.location =
+				$(this).find("a").attr("href");
+			});
+		</script>
+		-->
 
 <div class="site">
 <!--

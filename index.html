@@ -18,9 +18,17 @@ title: Mike Turquette
 			{% for post in site.posts %}
 			<section class="wrapper">
 			<div class="box1">
+				<script>
+					$(document).delegate("div", "click", function() {
+					window.location =
+					$(this).find("a").attr("href");
+					});
+				</script>
+
 				{{ post.title }}
 				</br>
 				{{ post.content | strip_html | truncate:400 }}
+				<a href={{ post.url }}>click here</a>
 			</div>
 			</section>
 			{% endfor %}
