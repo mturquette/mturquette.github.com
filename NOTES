@@ -1,0 +1,29 @@
+Verekia's Initializr versus HTML5 Boilerplate Initializr
+
+$ diff -ru verekia-initializr/ boilerplate-initializr/ | less
+
+The above shows that the download from initializr.com and
+html5boilerplate.com are mostly identical except for the following:
+
+verekia's has content in index.html and styles for that page added to
+css/style.css
+
+I like the newer libraries in html5boilerplate and that it pulls jQuery
+from xcdn.  Plus it has more framework-y stuff, so I'm going with it to
+redesign the blog.
+
+However the verekia stuff has some real (basic) examples which should
+not get thrown away so I'm keeping it around.
+
+---
+
+Golden Grid System versus HTML5Boilerplate
+
+Both have CSS which do resets.  H5BP doesn't _really_ do any meaningful
+media queries; on the other hand the media queries are the heart and
+soul of GGS.
+
+AI: transplant the media queries from GGS into H5BP's style.css and see
+what happens!  Might have to load them on top of each other... but I
+think the IE 6-8 stuff will clash since there are different ways of
+fixing those problems...
