@@ -1,0 +1,12 @@
+title at the top of index.html is:
+
+deferred.io /
+
+in big bold letters.  when a user clicks a link the "eferred.io" fades away in
+an animation and the "/" slides to the left to make "d /".  Then the page
+loads that the user clicks on (for example 2011-11-26-css-animations.textile)
+and the rest of the title fades in, making "d / css animations".  Fancy!
+
+UX design inspiration: tron.  The cleanliness-meets-organic looks of t:l,
+mirror's edge appeals to me most.  don't forget the original goals of
+spanr.git.  finally, a little graffiti/street art never hurt anyone too.
