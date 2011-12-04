@@ -27,3 +27,13 @@ AI: transplant the media queries from GGS into H5BP's style.css and see
 what happens!  Might have to load them on top of each other... but I
 think the IE 6-8 stuff will clash since there are different ways of
 fixing those problems...
+
+---
+
+Modernizr - http://www.modernizr.com/download/
+
+Do I still want respond.js?  Can it be replaced entirely with ggs?
+
+I need to think about the integration of ggs into the rest of the h5bp
+stack; if it belongs in modernizr how about providing it as a community
+add-on?
