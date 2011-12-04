@@ -1,0 +1,18 @@
+---
+layout: post
+title: Todo
+---
+
+* -deferred.io - should use mturquette.github.com as backing store hosting-
+* diaspora - should run Tip of Tree, probably bad up-time, uses deferred.io domain
+* -tumblr - instrumentation should be linked at mturquette.github.com/blog or deferred.io/blog-
+* blog - finalize css/look-n-feel, test on mobile devices & put up some damn content
+* livefyre - switch from disquse to livefyre for comments
+* -golden grid system - create static front page using GGS.  Maybe update tumblr's 'spanr' theme to use GGS also?-
+** should I use "Frameless":http://framelessgrid.com/ instead?
+* social networking tie-ins - should I pull down data from LinkedIn, Ohloh, twitter, facebook and googleplus?
+** Or I could just link to all of it through my about.me page...
+* The footer of the page should contain the git history as a way to capture edits made to it over time.
+** e.g: http://oli.jp/2009/html5-structure1/
+* use jQwery to make the "article boxes" clickable
+** http://css-tricks.com/16-creating-clickable-divs/
