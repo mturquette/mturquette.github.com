@@ -1,0 +1,76 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<title>Golden Grid System Demo</title>
+
+		<!-- Please don't add "maximum-scale=1" here. It's bad for accessibility. -->
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Feel free to split the CSS into separate files, if you like. -->
+		<link rel="stylesheet" href="/lib/ggs/GGS.css" type="text/css" /> 
+		<link rel="stylesheet" href="/lib/box.css" type="text/css" />
+
+		<!-- Here's Golden Gridlet, the grid overlay script. -->
+		<script type="text/javascript" src="/lib/ggs/GGS.js"></script>
+
+		<!-- The unstoppable, indespensible jQuery -->
+		<script src="/lib/jquery.js"></script>
+
+	</head>
+
+	<body lang="en">
+
+		<a href="http://jquery.com/">jQuery</a>
+		<script src="/lib/jquery.js"></script>
+		<!--
+		<script>
+
+			$(document).ready(function(){
+				$("a").click(function(event){
+					alert("Thanks for visiting!");
+				});
+			});
+
+		</script>
+		-->
+
+		<!--
+		<script>
+			$(document).delegate("div", "click", function() {
+				window.location =
+				$(this).find("a").attr("href");
+			});
+		</script>
+		-->
+
+<div class="site">
+<!--
+  <div class="title">
+    <a href="/">Mike Turquette</a>
+    <a class="extra" href="/">home</a>
+  </div>
+-->
+
+  {{ content }}
+
+<!--
+  <div class="footer">
+    <div class="contact">
+      <p>
+	deferred.io
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/tom-preston-werner">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+-->
+</div>
+
+
+	</body>
+</html>
