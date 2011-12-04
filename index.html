@@ -1,0 +1,37 @@
+---
+layout: h5bp
+title: Mike Turquette
+---
+
+		<!-- Demo code begins -->
+
+		<header>
+			<div class="wrapper">
+				<h1>A Golden Demonstration</h1>
+				<h2>
+					Try resizing your browser or viewing this page on different devices. Use the icon in the upper right corner to see an overlay of the grid.
+				</h2>
+			</div>
+		</header>
+
+		<article id="twoway">
+			{% for post in site.posts %}
+			<section class="wrapper">
+			<div class="box1">
+				<script>
+					$(document).delegate("div", "click", function() {
+					window.location =
+					$(this).find("a").attr("href");
+					});
+				</script>
+
+				{{ post.title }}
+				</br>
+				{{ post.content | strip_html | truncate:400 }}
+				<a href={{ post.url }}>click here</a>
+			</div>
+			</section>
+			{% endfor %}
+		</article>
+
+		<!-- Demo code ends -->
