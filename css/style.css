@@ -472,6 +472,14 @@ h3 {
 
 /* === Golden Grid System END === */
 
+.blurb {
+	background-color: gray;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	margin: -1
+}
+
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */
