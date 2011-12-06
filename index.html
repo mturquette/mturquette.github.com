@@ -3,8 +3,6 @@ layout: h5bp
 title: Mike Turquette
 ---
 
-		<!-- Demo code begins -->
-
 		<header>
 			<div class="wrapper">
 				<h1>A Golden Demonstration</h1>
@@ -15,23 +13,13 @@ title: Mike Turquette
 		</header>
 
 		<article id="twoway">
-			{% for post in site.posts %}
-			<section class="wrapper">
-			<div class="box1">
-				<script>
-					$(document).delegate("div", "click", function() {
-					window.location =
-					$(this).find("a").attr("href");
-					});
-				</script>
-
-				{{ post.title }}
-				</br>
-				{{ post.content | strip_html | truncate:400 }}
-				<a href={{ post.url }}>click here</a>
-			</div>
-			</section>
-			{% endfor %}
+		{% for post in site.posts %}
+		<section class="wrapper blurb">
+		{{ post.title }}
+		</br>
+		{{ post.content | strip_html | truncate:400 }}
+		<!--{{ post.content | truncate:400 }}-->
+		<a href={{ post.url }}>click here</a>
+		</section>
+		{% endfor %}
 		</article>
-
-		<!-- Demo code ends -->
