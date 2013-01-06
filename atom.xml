@@ -5,21 +5,21 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Zach Holman</title>
- <link href="http://zachholman.com/atom.xml" rel="self"/>
- <link href="http://zachholman.com/"/>
+ <title>deferred.io</title>
+ <link href="http://deferred.io/atom.xml" rel="self"/>
+ <link href="http://deferred.io/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://zachholman.com</id>
+ <id>http://deferred.io</id>
  <author>
-   <name>Zach Holman</name>
+   <name>Michael Turquette</name>
  </author>
  
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://zachholman.com{{ post.url }}"/>
+   <link href="http://deferred.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://zachholman.com{{ post.id }}</id>
+   <id>http://deferred.io{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}

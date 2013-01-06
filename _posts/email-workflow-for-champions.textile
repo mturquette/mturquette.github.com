@@ -1,0 +1,3 @@
+Document my offlineimap, notmuch, afew, alot and cron job configuration
+so that others may benefit.  Make sure that my homesick 'castle' for
+this configuration has been created already and provide a link to it.

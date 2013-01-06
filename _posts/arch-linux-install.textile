@@ -1,0 +1,58 @@
+* boot from netinstall cd
+* alt-f2 to bring up alternative console
+** login as 'root'
+** ifconfig wlan0 up
+** iwlist wlan0 scanning
+** iwconfig wlan0 essid "youressid: key yourkey
+** dhcpcd wlan0
+* alt f1 to go back to setup console
+* run /arch/setup
+
+* um... probably missed a lot of stuff...
+
+* pacman -Syy
+
+* set up normal user
+** https://wiki.archlinux.org/index.php/Beginners%27_Guide#Adding_a_User
+** https://wiki.archlinux.org/index.php/Users_and_Groups
+
+* pacman -S links
+** use links to browse wiki.archlinux.org, aur.archlinux.org, etc.
+
+* set up yaourt to fetch packages from AUR
+** https://wiki.archlinux.org/index.php/Yaourt
+** http://archlinux.fr/yaourt-en#get_it
+*** pacman -S yajl
+
+* fonts are a big deal
+** first round (installed awesome only):
+*** yaourt -S awesome awesome-themes-git cairo-ubuntu-xcb rxvt-unicode
+** second round (installed gnome3 AND awesome):
+*** https://wiki.archlinux.org/index.php/Font_Configuration#Patched_packages
+**** Ubuntu uses the original LCD patched packages and adds extra configurations, and occasionally patches.  Install the patched packages from the AUR. The package names are freetype2-ubuntu fontconfig-ubuntu libxft-ubuntu cairo-ubuntu. 
+*** https://wiki.archlinux.org/index.php/Font_Configuration
+*** inconsolata
+**** http://www.levien.com/type/myfonts/inconsolata.html
+**** already installed by default
+**** http://aur.archlinux.org/packages.php?ID=23873
+*** http://hivelogic.com/articles/top-10-programming-fonts/
+*** http://hivelogic.com/articles/anonymous-pro-programming-monospace-font/
+*** https://wiki.archlinux.org/index.php/Fonts
+*** https://bbs.archlinux.org/viewtopic.php?id=44800
+*** https://wiki.archlinux.org/index.php/Rxvt-unicode#Font_Declaration_Methods
+*** http://ethanschoonover.com/solarized
+*** dust theme from awesome extra themes package
+
+
+* transparency!
+**
+http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.7.pod#Rendering_Font_amp_Look_and_Feel_Iss
+** urxvt -depth 32 -fg grey90 -bg rgba:0000/0000/4444/cccc
+** show .Xdefaults (should be .Xresources!)
+
+* yaourt -S bash-completion
+
+* cp /etc/xdg/awesome/rc.lua to ~/.config/awesome/
+** change term="xterm" to term="urxvt"
+
+
