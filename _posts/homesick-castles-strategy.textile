@@ -1,0 +1,54 @@
+---
+layout: post
+title: Homesick, castles and strategy
+category: posts
+---
+
+!/images/homesick-castles-strategy/have-fun-storming-the-castle.png(Billy Crystal verbatim)!
+
+"Homesick":https://github.com/technicalpickles/homesick is a nice bit of software written by Josh Nichols aka technicalpickles.  Homesick makes it easy to maintain, update and deploy your configuration files (dotfiles) on any host, thus preventing you from feeling homesick when working across machines.
+
+Homesick operates on _castles_, git repositories containing configuration files following a specific format.  The format is mercifully simple: each git repo has a top-level directory named "home", and that directory contains the directories and dotfiles arranged in the paths you expect to see on the host.  When deploying a home directory to a new host homesick will clone the git repository somewhere and then symlink the dotfiles to their _real_ paths.
+
+h2. installation
+
+The homesick git repository doesn't actually contain any l33t dotfiles.  You only need to clone that if you want to hack on homesick itself.  Instead install homesick via gem.
+
+bc. $ sudo gem install homesick
+
+h1. castles are meant to be shared
+
+The best castles will be topical and concise.  Imagine that you are an Ubuntu user that prefers Vim and Bash.  You see a large git repo containg an awesome .vimrc and many useful plugins, but it also has a ton of OSX specific dotfiles as well as Emacs and Zsh bits.  It might be worth your time to pick through the pieces that you care about but wouldn't it be better if each of those pieces of software had their own separate castle?
+
+The best strategy is to plan early and expect to have a kingdom full of castles.  Or a forest full of git trees.  Git submodules are the way to go.
+
+I manage my castles in a super-repository named "kingdom":TODO.  Kingdom is filled with castles (har har) as well as any deployment scripts I want to use that do not neatly fit into a castle.
+
+Below are the steps I used when creating my email castle.  Note that this castle contains configuration files for offlineimap, notmuch, afew and alot.  Suprisingly those are all names of software projects and not typos.
+
+bc. s $ cd ~/src/homesick-castles
+$ homesick generate mturquette-email
+      create  mturquette-email
+    git init
+      create  mturquette-email/home
+$ cd mturquette-email/home/
+$ cp -a ~/.offlineimaprc ~/.notmuch-config ~/.config/afew/ ~/.config/alot/ ~/.local/bin/
+afew        alot        mail.cron   mail.print  notmuch     
+$ cp -a ~/.offlineimaprc ~/.notmuch-config ~/.config/afew/ ~/.config/alot/ ~/.local/bin/mail.cron ~/.local/bin/mail.print ./
+$ mkdir -p .config .local/bin
+$ mv alot/ afew/ .config/
+$ mv mail.cron mail.print .local/bin/
+$ ls -l
+total 48
+drwxrwxr-x 4 mturquette mturquette 4096 Jan  8 00:28 .
+drwxrwxr-x 4 mturquette mturquette 4096 Jan  7 23:01 ..
+drwxrwxr-x 4 mturquette mturquette 4096 Jan  8 00:27 .config
+drwxrwxr-x 3 mturquette mturquette 4096 Jan  8 00:27 .local
+-rw-rw-r-- 1 mturquette mturquette 2335 Jan  6 20:03 .notmuch-config
+-rw------- 1 mturquette mturquette 9479 Jan  6 18:06 .offlineimaprc
+
+That simple.
+
+I hope you enjoy using 
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/OwKXggW7naI" frameborder="0" allowfullscreen></iframe>
