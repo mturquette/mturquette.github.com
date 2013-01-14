@@ -4,7 +4,7 @@ title: Homesick, castles and strategy
 category: posts
 ---
 
-!/images/homesick-castles-strategy/have-fun-storming-the-castle.png(Billy Crystal verbatim)!
+!/images/homesick-castles-strategy/have-fun-storming-the-castle.png(Billy Crystal loves git)!
 
 "Homesick":https://github.com/technicalpickles/homesick is a nice bit of software written by Josh Nichols aka technicalpickles.  Homesick makes it easy to maintain, update and deploy your configuration files (dotfiles) on any host, thus preventing you from feeling homesick when working across machines.
 
@@ -52,3 +52,33 @@ That simple.
 I hope you enjoy using 
 
 <iframe width="420" height="315" src="http://www.youtube.com/embed/OwKXggW7naI" frameborder="0" allowfullscreen></iframe>
+
+mkdir -p ~/.homesick/repos
+cd ~/.homesick/repos
+homesick generate mturquette/castle-email
+
+---
+
+h1. REBOOT
+
+Managing ones home directory can be a chore.  Keeping configuration files in sync across environments and sharing those configurations with others is important.  This is now more true than ever in a world with virtualization where one might find themselves setting up new servers and application instances at a high frequency.
+
+I was delighted to see that Github dedicated a "page":http://dotfiles.github.com/ to the problem of managing ones dotfiles.  However as I dug deeper into each framework I discovered one cold, hard truth.
+
+h1. they all suck
+
+"Issue #12":https://github.com/technicalpickles/homesick/issues/12 nicely describes a problem not only affects homesick, but also homeshick, and ghar.  None of these frameworks can handle directories.  A common example would be any configuration file under $HOME/.config.  This is pretty common in Ubuntu-land.  Ufortunately these tools are not smart enough to traverse into .config and then populate the symlinks.  Instead they want to have the one and only copy of the entire .config directory, and make that whole directory a symlink.
+
+This is a deal breaker for a couple of reasons.  First, it simply does not work for a common case that many users want to solve.  It should be no surprise that homesick's Issue #12 can be found as ghar's "Issue #7":https://github.com/philips/ghar/pull/7.
+
+Secondly, a primary goal of any of these frameworks should be that users can share and re-use useful configurations.  As such the frameworks should reward users who make concise, on-topic git repos that Do One Thing And Do It Well.  For instance a Vim configuration repo that only pertains to Vim configuration, as opposed to a mega repository which contains Vim, Ruby, Bash and Zsh configurations tailored to a single users liking.  How does a mega repository benefit anyone besides the person who created that repository?  We all go back to hunting and picking snippets here and there and the whole point of hosting a framework on github is lost.
+
+h1. separating tools and dotfiles
+
+It is the second reason outlined above that Ben Alman's "dotfiles":https://github.com/cowboy/dotfiles project doesn't work for me either.  While it is well-designed in many respects and clearly well-liked, there is no separation between the management tool and the configuration files.  This greatly inhibits sharing.  The only way to share in that project is to make a monolithic mega-repository that includes the kitchen sink, and that is exactly what has been done.
+
+h1. we've been here before
+
+What is it that I really want from these dotfiles tools?  Package management.  A problem that has been solved many times over many years.  Why are we still struggling with this?  From the perspective of a dotfiles tool I want it to grab a git repo and install it sensibly.  I do not want to have worry about symlink clobbering, or an inability to recurse in a directory that already exists.  All I want is to either make a duplicate of a master configuration file and copy it to it's correct location or symlink it.  Either way this isn't asking too much.  Any Debian package or RPM could do this.  Unfornately making packages on those systems incur a higher barrier of entry than simply tossing some files into a git repository.
+
+So that is my proposal.  Someone please make a git-based configuration managment tool which acts like a package manager.  Kthx.
