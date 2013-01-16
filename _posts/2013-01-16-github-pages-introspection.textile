@@ -1,0 +1,39 @@
+---
+layout: posts
+title: github-pages and introspection
+---
+
+* list all of the top-level files in the master branch
+** http://www.hurl.it/hurls/8399d3e81cbd8fe6822066d0598ed0471cb894f1/56f8d1364fa2b06f77b2093532a7e062cb897556
+** returns "afe156ccbfc376fe8342242539648087ec9ce8e8" for the blob "_posts"
+* list all of the files in _posts
+** http://www.hurl.it/hurls/2d00db0bcb839eb7c7f58f5c17b7db9cecca37b1/4dd7af0625e19235cc27bf7b06ffda227eda77bc
+** returns "2b80a658f9b18f4024d7fb863333e3ee06105161" for the sha hash corresponding to "2013-01-13-email-workflow-for-champions.textile"
+
+or
+
+* list all of the files recursively in the master branch
+** http://www.hurl.it/hurls/e0b05e3928a2e6297650efed1e1dbfaf588932ec/4ddee4166184d13a81275813c413f50d3e8c9536
+** can still get "2b80a658f9b18f4024d7fb863333e3ee06105161" for the sha hash corresponding to "2013-01-13-email-workflow-for-champions.textile"
+
+then
+
+* I don't know what the fuck this stuff is:
+http://www.hurl.it/hurls/f15570965368b9ffa650f588dc4996546365cf69/f3305d9bf0d0b47f173ce1dbb9bbd707615f77c0
+http://www.hurl.it/hurls/c0812ebe58b089584a96801350fec9cb98a5d722/a4b3bbac8966dd61c2ad3e30b5b5fbb064934301
+http://www.hurl.it/hurls/03319a0f43ef17ac0d29431a071d5eefea20eb2e/f178b72a8ccbc70a077007ced605119678a9c666
+
+but most importantly
+
+* show all of the commit history for a given file
+** http://www.hurl.it/hurls/03319a0f43ef17ac0d29431a071d5eefea20eb2e/f178b72a8ccbc70a077007ced605119678a9c666
+** https://api.github.com/repos/mturquette/mturquette.github.com/commits?path=_posts/2013-01-13-email-workflow-for-champions.textile
+** gold mine!  This gives me what I want for the git history.
+*** now onto parsing the data and pretty-printing it in a div!
+** Also I need to figure out the jekyll info for the filename
+*** if I can programmatically fetch the filename then I only need the one line above!
+*** Can be done!  https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter
+**** Use a custom variable to encode the filename
+** this page was helpful: http://swanson.github.com/blog/2011/07/09/digging-around-the-github-v3-api.html
+
+Also don't forget to start using the "published" variable in the YAML front matter instead of renaming files.
