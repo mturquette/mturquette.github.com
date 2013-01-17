@@ -1,7 +1,7 @@
 ---
 layout: post
 title: github-pages and introspection
-published: true
+published: false
 filename: 2013-01-16-github-pages-introspection.textile
 ---
 
