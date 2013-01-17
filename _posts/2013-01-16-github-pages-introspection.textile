@@ -1,6 +1,7 @@
 ---
 layout: posts
 title: github-pages and introspection
+published: false
 ---
 
 * list all of the top-level files in the master branch
