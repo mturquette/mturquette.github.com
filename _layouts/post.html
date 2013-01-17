@@ -11,6 +11,10 @@ layout: layout
     {{ page.date | date: "%B %e, %Y" }}
   </section>
 
+<div class="gh-page-history2"></div>
+
+  <div id="gh-page-history"></div>
+
   {{ content }}
 
   <!-- TODO: change links, gravatar, and bio here -->
@@ -31,4 +35,28 @@ layout: layout
       <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
     </section>
   </section>
+
+  <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+  <script src="/js/gh-api.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function() {
+      //$("#gh-page-history").loadRepositories("mturquette");
+      $("#gh-page-history").showPageHistory();
+    });
+  </script>
+
+<script src="/js/jquery.github.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+    $(".members").github({organization: 'hackatron'});
+  });
+</script>
+
+<script src="/js/gh-page-history.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+		  $(".gh-page-history2").ghpagehistory();
+  });
+</script>
+
 </section>

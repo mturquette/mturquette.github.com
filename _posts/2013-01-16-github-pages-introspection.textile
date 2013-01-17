@@ -1,11 +1,19 @@
 ---
-layout: posts
+layout: post
 title: github-pages and introspection
-published: false
+published: true
 filename: 2013-01-16-github-pages-introspection.textile
 ---
 
 page.filename is {{ page.filename }}
+
+
+
+
+
+
+</br></br></br></br>
+</br></br></br></br>
 
 * list all of the top-level files in the master branch
 ** http://www.hurl.it/hurls/8399d3e81cbd8fe6822066d0598ed0471cb894f1/56f8d1364fa2b06f77b2093532a7e062cb897556
