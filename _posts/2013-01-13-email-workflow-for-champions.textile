@@ -136,7 +136,7 @@ exit 0
 p. Install the script with crontab.  The below snippet will cause the script to be run every 15 minutes.
 
 bc. $ echo "`crontab -l`
-*/15 * * * *  ~/.local/bin/mail.print" | crontab -
+*/15 * * * *  ~/.local/bin/mail.cron" | crontab -
 
 You can check the log and view progress of the sync.
 
