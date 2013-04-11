@@ -161,6 +161,14 @@ p. I bound the pipe key to this function in ~/.config/alot/config.  Using pipe f
 bc. [[thread]]
     | = pipeto --format=raw ~/.local/bin/mail.print
 
+h2. viewing HTML emails
+
+If you are unlucky enough to need to view emails with embedded HTML then you may need to install w3m for alot to display them properly.  I have found that this is unecessary for me with recent versions of alot, but some might still benefit.  For Debian-ish users:
+
+bc. $ sudo apt-get install w3m
+
+Do not forget to edit your @$HOME/.mailcap@.
+
 Have fun with your Email Workflow for Champions(tm)!
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/D0Yuc_25ySw" frameborder="0" allowfullscreen></iframe>
