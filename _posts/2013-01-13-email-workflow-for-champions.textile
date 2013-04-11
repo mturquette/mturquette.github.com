@@ -8,9 +8,13 @@ category: posts
 
 I have edited this document several times while authoring it, always trying to reduce its size.  Unfortunately this is a big topic so it merits a long article.  I recommend brewing coffee before diving in.
 
-There are four main parts: an explanation of my email work flow, installing the requisite software, configuring the software and finally using the software.  A screencast showing what alot looks like with my theme is at the bottom of this post.
+There are four main parts: an explanation of my email work flow, installing the requisite software, configuring the software and finally using the software.
 
 Finally, all of my configuration files for the software below are available on "github":http://github.com/mturquette/ghar-email.
+
+But what does it look like?  Check out this poor quality screencast showing what alot looks like with my configuration and theme:
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/D0Yuc_25ySw" frameborder="0" allowfullscreen></iframe>
 
 h1. the workflow
 
@@ -170,5 +174,3 @@ bc. $ sudo apt-get install w3m
 Do not forget to edit your @$HOME/.mailcap@.
 
 Have fun with your Email Workflow for Champions(tm)!
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/D0Yuc_25ySw" frameborder="0" allowfullscreen></iframe>
