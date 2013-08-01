@@ -1,3 +1,4 @@
+---
 layout: post
 title: Shrink /home partition to make space for RAID1
 category: posts
