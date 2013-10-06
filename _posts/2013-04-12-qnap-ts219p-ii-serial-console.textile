@@ -37,7 +37,7 @@ Disassemble the device such that the hard disks, hard disk cages and cage enclos
 
 h1. parts
 
-h2. prh-4 connector
+h2. phr-4 connector
 
 Get this from ye olde "sparkfun":https://www.sparkfun.com/products/9916.
 
