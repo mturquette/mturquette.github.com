@@ -43,7 +43,7 @@ Get this from ye olde "sparkfun":https://www.sparkfun.com/products/9916.
 
 h3. reuse, renew, recycle
 
-Old CD-ROM audio cables use the same PRH-4 connectors and can be hacked up if you have one lying around.  I do not recommend that you "buy one new":http://cpc.farnell.com/_/cd-110/analogue-audio-cable-for-cd-dvd/dp/CS02453 since the part from sparkfun is so darned cheap.  But maybe you can get a good deal at the local salvage yard...
+Old CD-ROM audio cables use the same PHR-4 connectors and can be hacked up if you have one lying around.  I do not recommend that you "buy one new":http://cpc.farnell.com/_/cd-110/analogue-audio-cable-for-cd-dvd/dp/CS02453 since the part from sparkfun is so darned cheap.  But maybe you can get a good deal at the local salvage yard...
 
 <iframe width="420" height="315" src="http://www.youtube.com/embed/1WqazleR3FE" frameborder="0" allowfullscreen></iframe>
 
@@ -57,7 +57,7 @@ Some "RS232-to-TTL converters":https://www.sparkfun.com/products/449 use a techn
 
 h1. theory of operation
 
-The female DB9 connector on the host side of the level converter plugs into the serial port of your PC.  It's VCC line is 12V, but don't worry about that since the level shifter chip on the Droids SAS board takes care of this for us.  On the target side of the board will be a bunch of pads for us to solder.  For the 4-pin UART on the TS219P-II we only need VCC, GND, TX & RX.  I chose to solder the headers on the bottom of the board and glob the wires from the PRH-4 connector to the relevant pins.  You might handle it different if you have jumper wire with a nice socket on the end that can plug into the header directly.
+The female DB9 connector on the host side of the level converter plugs into the serial port of your PC.  It's VCC line is 12V, but don't worry about that since the level shifter chip on the Droids SAS board takes care of this for us.  On the target side of the board will be a bunch of pads for us to solder.  For the 4-pin UART on the TS219P-II we only need VCC, GND, TX & RX.  I chose to solder the headers on the bottom of the board and glob the wires from the PHR-4 connector to the relevant pins.  You might handle it different if you have jumper wire with a nice socket on the end that can plug into the header directly.
 
 We want to connect the VCC pin from the target UART to VCC on the level converter board, and likewise we want the target UART GND pin to line up with GND on the board.  RX & TX are tricky and this causes much confusion.  We want the TX pin on the target UART to connect to RX on the level converter board and the RX pin on the target UART to connect to TX on the board.  This is because the TX/RX on the Droids SAS board are representative of the TX/RX pins coming from the host (PC) side, and not representative of the target (QNAP TS219P-II).
 
