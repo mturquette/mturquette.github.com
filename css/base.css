@@ -25,12 +25,12 @@ a {
   .sidebar .name {
     text-transform: uppercase;
     margin: 10px 0 20px 0; }
-    .sidebar .name #mike {
+    .sidebar .name #fname {
       padding-left: 1px;
       font-size: 23px;
       letter-spacing: 5px;
       color: black; }
-    .sidebar .name #turquette {
+    .sidebar .name #lname {
       font-size: 17px;
       font-weight: bold;
       letter-spacing: 1px;
@@ -40,6 +40,10 @@ a {
     color: black; }
     .sidebar .meta a:hover {
       color: #227ce8; }
+  .sidebar .meta {
+    margin-left: 4px; }
+  .sidebar .meta .icon {
+    margin-right: 6px; }
   .sidebar .sections {
     margin: 15px 0 0 0; }
     .sidebar .sections a {
@@ -58,8 +62,9 @@ a {
       margin-bottom: 7px; }
 
 .content {
+  max-width: 650px;
   margin-left: 110px;
-  width: 650px;
+  margin-right: 20px;
   margin-bottom: 50px; }
   .content h1 {
     color: #333;

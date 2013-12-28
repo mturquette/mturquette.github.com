@@ -1,7 +1,12 @@
 markdown: rdiscount
 pygments: true
 permalink: /posts/:title
-auto: true
-server: true
 rdiscount:
   extensions: [smart]
+
+name: Mike Turquette
+url: http://deferred.io
+description: This is where I flush my I/O buffer.
+twitter: mturquette
+github: mturquette
+gravatar_url: http://www.gravatar.com/avatar/351b5f1f519d6470646105bc62f51f0f.png

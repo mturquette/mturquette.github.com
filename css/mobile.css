@@ -7,7 +7,7 @@
     display: none; }
   .sidebar .name {
     display: inline; }
-    .sidebar .name #mike, .sidebar .name #turquette {
+    .sidebar .name #fname, .sidebar .name #lname {
       font-size: 25px; }
   .sidebar .meta {
     display: none; }
