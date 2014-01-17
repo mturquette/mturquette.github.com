@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Board farm part 1: conmux"
+title: "Board farm part 3: conmux"
 category: posts
 published: false
 ---
