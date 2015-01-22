@@ -4,18 +4,61 @@ title: sane Gmail filters for high-volume mailing lists
 date: '2011-09-22T20:55:00-07:00'
 tags: []
 tumblr_url: http://turqee.tumblr.com/post/10542468006/sane-gmail-filters-for-high-volume-mailing-lists
-published: false
+published: true
 ---
-i’m a Linux kernel dev and i subscribe to mailing lists that get a lot of mail and i use Google Apps (Gmail) as my back-end mail service.
-unlike most UNIX wizards with their GNU beards and ancient, curmudgeonly ways i actually like using the web interface of Gmail… but i did have one very big problem using filters and labels for my many FLOSS mailing lists.
-i cannot possibly afford to have mail from various Linux kernel mailing lists land in my primary “Inbox” label, lest my infrequent (and arguable more important) non-mailing list mail gets lost in the sea of email that i’ll never get around to reading.  i needed to separate out the FLOSS mail into separate folders, or in Gmail parlance i would “archive” all of my mailing list mail.  logically i labeled such mail with a name matching the list the mail came from.
-for example a patch might hit both the linux-omap list and the linux-arm-kernel list.  two independent filters would operate on this thread and label it “linux-omap” and “linux-arm-kernel” respectively.  both filters would also archive the thread so that my inbox would not become inundated with close to 1,000 new mails every day.
-this worked great except for when someone sent the mail to me and Cc’d the list, or if i was in Cc on a mail sent to a list.  in this case i want to get the mail in my inbox so that i know it requires my attention.  so how to do this with gmail’s rudimentary filters?
-after some searching i sadly discovered that gmail has no real conditional logic in its pattern matching support.  what i needed was an ‘if’ statement to control whether or not to archive a mail, based on whether i was explicitly in the To: or Cc: fields.  then after a few minutes of ponderation it hit me: why not create two filters for each mailing list?
-turns out that this method works like a charm.  just create a filter for the mailing list and label it without archiving the mail.  then copy that filter exactly but add a “to:-me” to the pattern matching bit, and make this filter label it and archive it.  the first filter makes sure that mails to the list are labeled correctly, regardless of whether or not they were also addressed to me.  the second filter insures that mail to a list which is not addressed to me is archived.  two filters for every mailing list sounds lame, but setting it up is a one-time cost that made me oh so happy.
-below is an xml file that contains my filters for some common Linux kernel mailing lists.  you can copy these to a file and import them into your Gmail account by clicking Settings->Filters->Import filters (at the bottom of the page).
-happy mailing!
+I’m a Linux kernel dev and I subscribe to mailing lists that get a lot
+of mail and I use Google Apps (Gmail) as my back-end mail service.
 
+Unlike most UNIX wizards with their GNU beards and ancient, curmudgeonly
+ways I actually like using the web interface of Gmail… but I did have
+one very big problem using filters and labels for my many
+[FLOSS](http://en.wikipedia.org/wiki/Free_and_open_source_software#FLOSS)
+mailing lists.
+
+I cannot possibly afford to have mail from various Linux kernel mailing
+lists land in my primary “Inbox” label, lest my infrequent (and arguably
+more important) non-mailing list mail become lost in the sea of email
+that I’ll never get around to reading. I needed to separate out the
+FLOSS mail into separate folders, or in Gmail parlance I would “archive”
+all of my mailing list mail. Logically I labeled such mail with a name
+matching the list the mail came from.
+
+For example a patch might hit both the linux-omap list and the
+linux-arm-kernel list. Two independent filters would operate on this
+thread and label it “linux-omap” and “linux-arm-kernel” respectively.
+Both filters would also archive the thread so that my inbox would not
+become inundated with close to 1,000 new mails every day.
+
+This worked great except for when someone sent the mail to me and Cc’d
+the list, or if I was in Cc on a mail sent to a list. In this case I
+want to get the mail in my inbox so that I know it requires my
+attention. So how to do this with gmail’s rudimentary filters?
+
+After some searching I sadly discovered that gmail has no real
+conditional logic in its pattern matching support. What I needed was an
+‘if’ statement to control whether or not to archive a mail, based on
+whether I was explicitly in the To: or Cc: fields. Then after a few
+minutes of ponderation it hit me: why not create two filters for each
+mailing list?
+
+Turns out that this method works like a charm. Just create a filter for
+the mailing list and label it without archiving the mail. Then copy that
+filter exactly but add a “to:-me” to the pattern matching bit, and make
+this filter label it and archive it. The first filter makes sure that
+mails to the list are labeled correctly, regardless of whether or not
+they were also addressed to me. The second filter insures that mail to a
+list which is not addressed to me is archived. Two filters for every
+mailing list sounds lame, but setting it up is a one-time cost that made
+me oh so happy.
+
+Below is an xml file that contains my filters for some common Linux
+kernel mailing lists. You can copy these to a file and import them into
+your Gmail account by clicking Settings->Filters->Import filters (at the
+bottom of the page).
+
+Happy mailing!
+
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:apps="http://schemas.google.com/apps/2006">
 	<title>Mail Filters</title>
@@ -137,3 +180,4 @@ happy mailing!
 		<apps:property name="label" value="linux-arm-kernel"/>
 	</entry>
 </feed>
+```
