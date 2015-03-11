@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 published: false
 title: Hacking PLEX media server for Debian armel
 ---
@@ -17,6 +17,20 @@ Neither were fun solutions and I felt like a bad ARM Linux Power Hacker.
 Solution? Run it on my [QNAP TS-219P2+ running Debian Wheezy
 7.7](http://deferred.io/posts/qnap-ts219p-ii-debian-install/). Plex
 provides a QPKG for my device. Let's use that!
+
+> This is the first part of a two-part post on what it took to get Plex
+> Media Server running on QNAP TS-219P2+ NAS device. Be sure to read the
+> second part [here](/posts/2015-03-11-plex-on-debian-arm/).
+
+I like [Plex Media Server](https://plex.tv). It is not open source
+software but it does a good job of automagically transcoding files, has
+a nice Android app for remote control and works beautifully with
+Google's Chromecast & Playstation 4, my primary targets for consuming
+media.
+
+I wanted to get Plex running on my QNAP TS219P2+, which is running
+Debian Wheezy 7.7 as described in a previous [blog
+post](/posts/qnap-ts219p-ii-debian-install/).
 
 # qpkg
 
@@ -49,11 +63,9 @@ After lots and lots of searching and poking at it with some basic UNIX
 tools I figured it out and was able to unpack it. I'll spare you the
 gory details. Here is a general purpose script to unpack a qpkg:
 
-```
-Should I use a github gist instead?
-```
-
 # plex
+
+<script src="https://gist.github.com/mturquette/7835b61a5adeb4c85381.js"></script>
 
 Using the script above (or the qdk tools that we can now unpack) we can
 start tinkering with Plex's QNAP ARM distribution.
