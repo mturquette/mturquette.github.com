@@ -180,8 +180,8 @@ My hope is that they eventually grow into the kind of product company
 that focuses equally on both sides of the coin. I also hope that they
 target users at the lower end of the economic scale and in more rural
 locales because those are such interesting problems to solve. And most
-of all I hope that they succeed in their efforts connect the rest of the
-world.
+of all I hope that they succeed in their efforts to connect the rest of
+the world.
 
 Please [check it
 out](https://www.kickstarter.com/projects/1381437927/endless-computers)
