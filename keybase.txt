@@ -1,0 +1,73 @@
+https://keybase.io/mturquette
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://deferred.io
+  * I am mturquette (https://keybase.io/mturquette) on keybase.
+  * I have a public key with fingerprint BE4B AF4E CAB0 C33F 9235  20C4 3A8F 3B2F 5A7C 9849
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.8.16"
+        },
+        "key": {
+            "eldest_kid": "0101156fe57b1be22ee523ce7d801bb309271dfbee2531a5e00ec993ff3df682f26c0a",
+            "fingerprint": "be4baf4ecab0c33f923520c43a8f3b2f5a7c9849",
+            "host": "keybase.io",
+            "key_id": "3a8f3b2f5a7c9849",
+            "kid": "0101156fe57b1be22ee523ce7d801bb309271dfbee2531a5e00ec993ff3df682f26c0a",
+            "uid": "54f7311cb9775c1d31ca0ecefa3c2919",
+            "username": "mturquette"
+        },
+        "service": {
+            "hostname": "deferred.io",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1439487916,
+    "expire_in": 157680000,
+    "prev": "b4c64eb6a924ed00090629179f5b885b4d3e8cd9d614158b8a124d8526e08790",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUmtQVGUYXmAhZAqWiw5pkh5ccbme+2VHEkMNCwHH2Arb1nP5Dhwue5Y9B5Ao
+0xxwlqRsnCEDbcJhNM1EEosGBqeohhEbjGggDBSBTJEuGxDOkHQO0I9m+tn365vv
+fd7nfZ7n/Y484mfw9TlpPV7faW7s8+m+wxmyr/afq4A4WSiHrBUQXygBp6rfnGwR
+gKxQASjnWAUkSvIapyyAxHxlzRImHioFbkWSnRoKTqQTERJ6NV7H692gUACK6iiQ
+BL2KwAhCkCIgKA7hAIoCQKAYDyiBhhGOw2AGpRBB5ABACQxhCQDDgGcYTBQxQSRp
+VERJHma1gaLkzAVul1vSJUIcwDlWxAHPcjCPYSKDYgQK8zjG0iLGoSLBUjxD44zW
+mCcr6r/MQAtKHQvy/gP/P+suWaAjcJHCEITnGIoieETAEJ7VGoDIYjzKIPrcEgW4
+l4IvUkvcxSVAVYEeq/ZeKvFAj1b3soQRgAjcbiAsGnK5ZVXm5UKtkKeqLqvep5a7
+dGAZ4BxLFA5Ocgpajov7O7a4QESD8qqkkyI4xuA0xSBkPAT2uiQ3cEg6gqBIGtaO
+PgeU6vHjPIkDjmQZFAeCVmFgUrNBMSLB0TTB4QIGaF5gBBLBEYLmaBZBcYEmUBLA
+Gj8M6a6KnTJkxTSdbK5GqUi5TlbzrVn2+D5mNPj4GgL8ffUfaghaZvrn29ZcMhmq
+5lp7Cpi7eJqxKnLC8/Wq5eZ1X5wXbsAt6SdDQruv5feOxXRRmVjQ/Iw1qDouR8lJ
+qJ/6Zv/I8oyIFmh9UfP66b9qD7TUHYw1twWbr4fPNG1smIEHsi6pgYo39cqf63Yd
+tY023W+7YkfSsodqVhz03g3r+ir/jx033k/oalC8J1IdveaU9tzds5+Fx1ceWq3E
+BFa/PPYT0xExaf++Y+WW1ofiRoNvKZP3zlS0bHrzy8rO/sI7hzuuzUcvs737ecEH
+1n21u4SU+eCMitNkT8bgRj7prfcmraufNSWWBaavtX+8U3U2PZFgO6KOyk9n2YfO
+zH7YM06ij4KVUTUD8P3DL7Wz6EcT7Tubh+Qw157iUMjvjW3DD1L6J4xb68PNnvDG
+Qz/ejiopW9E22He8Dv1hz9ulR3+fec507PnkzZa58Uz28tDIz2F127Y7hja/fi5g
+X9Urpx/2pKQ9SeXEbo3ZEAq1+ud92uBXvenUxRciqoaTv+su3D2OnpizJZWFNNye
+TmmvNT6wZtsix6bCMWqk/p1ffQaF6c5PvFe3XEi2n4put7X99pQ38zVwYPZC6tSO
+2IgN1ekvdsZZIqObW7q6GP+oPhNVqT4Tej7AMGzqtkTsPWvnsFUZl4MsN73xSfdS
+MYLx8e25FTZDpzZ6tifJ0b0D+9eGqHE3sy56JsstvzwunrV+e934Nw==
+=jeM1
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mturquette
