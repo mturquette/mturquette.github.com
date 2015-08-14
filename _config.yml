@@ -1,12 +1,12 @@
-markdown: rdiscount
-pygments: true
-permalink: /posts/:title
-rdiscount:
-  extensions: [smart]
+# Site settings
+title: deferred.io
+email: mturquette@deferred.io
+description: > # this means to ignore newlines until "baseurl:"
+  This is where I flush my I/O buffer.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://deferred.io" # the base hostname & protocol for your site
+twitter_username: mturquette
+github_username:  mturquette
 
-name: Mike Turquette
-url: http://deferred.io
-description: This is where I flush my I/O buffer.
-twitter: mturquette
-github: mturquette
-gravatar_url: http://www.gravatar.com/avatar/351b5f1f519d6470646105bc62f51f0f.png
+# Build settings
+markdown: rdiscount
