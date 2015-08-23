@@ -26,7 +26,8 @@ needed the ia32-libs package.  This should have been obvious to me since the
 page](http://www.codesourcery.com/sgpp/lite/arm/portal/release1293) clearly
 marked their release tarball as IA32 GNU/Linux.
 
+Problem solved with the following:
+
 ```
-Problem solved with a quick,
 mturquette@quantum:~$ sudo apt-get install ia32-libs
 ```
