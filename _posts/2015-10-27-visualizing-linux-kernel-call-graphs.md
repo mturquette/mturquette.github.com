@@ -62,6 +62,17 @@ $ egypt /home/mturquette/src/linux/drivers/cpufreq/cpufreq.c.170r.expand \
 /home/mturquette/src/linux/drivers/cpufreq/cpufreq_stats.c.170r.expand \
 /home/mturquette/src/linux/drivers/cpufreq/cpufreq_userspace.c.170r.expand \
 /home/mturquette/src/linux/drivers/cpufreq/freq_table.c.170r.expand
+digraph callgraph {
+"store_sampling_rate_gov_pol" -> "update_sampling_rate" [style=solid];
+"store_io_is_busy_gov_pol" -> "store_io_is_busy" [style=solid];
+"cpufreq_enable_boost_support" -> "create_boost_sysfs_file" [style=solid];
+"cpufreq_register_driver" -> "create_boost_sysfs_file" [style=solid];
+"cpufreq_register_driver" -> "remove_boost_sysfs_file" [style=solid];
+"cpufreq_gov_userspace_exit" -> "cpufreq_unregister_governor" [style=solid];
+"cpufreq_get_policy" -> "cpufreq_cpu_get" [style=solid];
+"remove_boost_sysfs_file" -> "cpufreq_sysfs_remove_file" [style=solid];
+"store_ignore_nice_load" -> "get_cpu_idle_time" [style=solid];
+...
 ```
 
 Great! We have the call graph data, and a tool to parse it into a meaningful format. Now to visualize our data.
