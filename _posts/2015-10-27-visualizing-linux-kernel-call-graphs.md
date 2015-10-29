@@ -101,6 +101,14 @@ $ egypt /home/mturquette/src/linux/drivers/cpufreq/cpufreq.c.170r.expand \
 
 # Viewing it
 
+`cpufreq.c` with all dead-end functions pruned:
+
+![I removed all of the calls that do not form a chain](/images/visualizing-linux-kernel-call-graphs/cpufreq-next-pruned.svg)
+
+`cpufreq.c`, `cpufreq_governor.c`, 'cpufreq_stats.c` and `freq_table.c` with all dead-end functions pruned:
+
+![I removed all of the calls that do not form a chain](/images/visualizing-linux-kernel-call-graphs/cpufreq-next-core-pruned.svg)
+
 For large call graphs I recommend [Inkscape](https://inkscape.org/). You can print to PDF from here, or to a dead tree. Really the sky is the limit.
 
 Enjoy visualizing your new call graphs!
