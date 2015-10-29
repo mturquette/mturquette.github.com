@@ -105,7 +105,7 @@ $ egypt /home/mturquette/src/linux/drivers/cpufreq/cpufreq.c.170r.expand \
 
 ![I removed all of the calls that do not form a chain](/images/visualizing-linux-kernel-call-graphs/cpufreq-next-pruned.svg)
 
-`cpufreq.c`, `cpufreq_governor.c`, 'cpufreq_stats.c` and `freq_table.c` with all dead-end functions pruned:
+`cpufreq.c`, `cpufreq_governor.c`, `cpufreq_stats.c` and `freq_table.c` with all dead-end functions pruned:
 
 ![I removed all of the calls that do not form a chain](/images/visualizing-linux-kernel-call-graphs/cpufreq-next-core-pruned.svg)
 
