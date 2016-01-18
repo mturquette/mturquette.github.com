@@ -1,5 +1,6 @@
 # Site settings
 title: deferred.io
+author_name: Michael Turquette
 email: mturquette@deferred.io
 description: > # this means to ignore newlines until "baseurl:"
   This is where I flush my I/O buffer.
