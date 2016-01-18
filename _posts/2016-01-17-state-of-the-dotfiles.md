@@ -68,9 +68,8 @@ This has had a profound impact on my new toolchain.
 I have also cleaned up and streamlined my dotfiles. I tried over a dozen
 different dotfile management _frameworks_ (see [GitHub ❤
 ~/](http://dotfiles.github.io/)). The most UNIX-y approach of just about
-any of them is [ghar](https://github.com/philips/ghar) by [Brandon
-Philips](https://twitter.com/BrandonPhilips). I started using it in 2013
-and never looked back.
+any of them is [ghar](https://github.com/philips/ghar). I started using
+it in 2013 and never looked back.
 
 While living in San Francisco I also became a software hipster, started
 using a Macbook Pro and thus _had_ to try Z shell and
