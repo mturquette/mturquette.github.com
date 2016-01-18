@@ -11,9 +11,8 @@ tags: env, sotdf
 
 ## The articles
 1. [Bidirectional synchronization of notmuch tags with IMAP folders and Gmail Labels](/2016/01/18/notmuch-tags-gmail-labels-bidirectional-sync.html)
-1. Email is kind of a big deal. How I filter, label and work
-1. Getting things done while traveling: selective IMAP folder sync &
-   msmtp mail queue
+1. [Email is kind of a big deal. How I filter, label and
+   work](/2016/01/18/how-i-email.html)
 1. Pass, Keychain, GitHub and the death of cleartext passwords
 1. Ghar: consistent, rapid deployment of UNIX dotfiles
 1. Fish, Oh-my-fish and POWERLINE ALL THE THINGS
