@@ -10,7 +10,7 @@ tags: env, sotdf
 > serves as the Table of Contents and a short overview
 
 ## The articles
-1. [Bidirectional synchronization of notmuch tags with IMAP folders and Gmail Labels](/2016/01/17/notmuch-tags-gmail-labels-bidirectional-sync.html)
+1. [Bidirectional synchronization of notmuch tags with IMAP folders and Gmail Labels](/2016/01/18/notmuch-tags-gmail-labels-bidirectional-sync.html)
 1. Email is kind of a big deal. How I filter, label and work
 1. Getting things done while traveling: selective IMAP folder sync &
    msmtp mail queue
