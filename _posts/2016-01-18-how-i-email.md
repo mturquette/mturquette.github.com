@@ -68,7 +68,7 @@ the IMAP flag/Gmail Star, etc:
 Most of the patches I receive have multiple tags applied to them. For
 instance, a patch addressed to the linux-clk mailing list might also Cc
 the linux-kernel mailing list. Thanks to the [maildir-notmuch-sync
-script](2016/01/18/notmuch-tags-gmail-labels-bidirectional-sync.html)
+script](/2016/01/18/notmuch-tags-gmail-labels-bidirectional-sync.html)
 and the above Gmail filters, when we sync that email it will have at
 least three tags: `linux-clk`, `linux-kernel` and `needs-review`.
 
