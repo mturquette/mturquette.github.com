@@ -10,4 +10,4 @@ twitter_username: mturquette
 github_username:  mturquette
 
 # Build settings
-markdown: rdiscount
+markdown: kramdown
