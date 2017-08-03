@@ -457,7 +457,7 @@ need to kill `gpg-agent` or `ssh-agent` or hotplug the device (so far).
 This only works in Chromium so far, but hopefully mobile apps will start to
 adopt it in the future.
 
-# <a href="misc">Miscellaneous bits</a>
+# <a href="misc"></a> Miscellaneous bits
 
 If you use a signing *subkey* like me, and you prefer to use it for most common
 signing operations, you might want it to be the default key. Unfortunately
