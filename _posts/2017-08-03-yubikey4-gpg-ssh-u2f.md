@@ -4,13 +4,6 @@ title: GPG, SSH & U2F via Yubikey 4c on macOS, Linux & Android
 published: true
 ---
 
-> Start with how to create an AUTH subkey (separate article?)
->
-> Explain that private keys are transferred to card, but pubkeys stay on
-> host computer
->
-> ssh-agent and gpg-agent forwarding from macOS to Debian
-
 # Table of Contents:
 
 1. [How I use my Yubikey & GnuPG](#how-i-use-my-yubikey-gnupg)
@@ -24,9 +17,9 @@ published: true
 1. [Using AUTH subkey for SSH](#using-auth-subkey-for-ssh)
 1. [Yubikey 4c & Password Store on Android](#android)
 1. [Set up FIDO U2F for GitHub](#set-up-fido-u2f-for-github)
-1. [Miscellaneous bits](#mis)
+1. [Miscellaneous bits](#misc)
 
-# <a href="how-i-use-my-yubikey-gnupg"></a> How I use my Yubikey & GnuPG
+# <a href="how-i-use-my-yubikey-gnupg"></a>How I use my Yubikey & GnuPG
 
 I use the Yubikey 4c daily to improve my personal and professional security
 online. The two use cases for me are:
@@ -96,7 +89,7 @@ KDE-specific interface.
 Many of these GUI software suites built on top of GnuPG are incompatible with
 v2.1 Modern. Buyer beware.
 
-# <a href="a-note-yubikey-models"></> A note on Yubikey models
+# <a href="a-note-yubikey-models"></a> A note on Yubikey models
 
 There are a variety of different Yubico products, differences in firmware and
 hardware revisions, and lots of different procedures floating around the web.
@@ -126,7 +119,7 @@ I will interchangeable refer to the *Yubikey*, the *4c*, the *card* and the
 *key card*. They are different names for the same thing: the Yubikey dongle
 plugged into your USB port.
 
-# <a href="make-a-backup"></> Make a backup
+# <a href="make-a-backup"></a> Make a backup
 
 `gpg --export-secret-key --armor YOURKEY > YOURKEY.gpg.armor`
 
@@ -139,7 +132,7 @@ Don't forget to generate a [revocation
 certificate](https://wiki.debian.org/Keysigning#Step_2:_Generate_a_revocation_certificate).
 Store this in your safe alongside your private key.
 
-# <a href="reset-the-factory-pins"></> Reset the Factory Pins
+# <a href="reset-the-factory-pins"></a> Reset the Factory Pins
 
 The *admin* and *user* pins on your Yubikey are set at the factory. They are
 the same for all consumer-grade Yubico devices. We'll start by changing them to
@@ -272,7 +265,7 @@ Login data (account name): mturquette
 gpg/card> quit
 ```
 
-# <a href="transfer-existing-gnupg-keys"></> Transfer existing GnuPG keys
+# <a href="transfer-existing-gnupg-keys"></a> Transfer existing GnuPG keys
 
 I will populate all three key slots on the Yubikey 4c with *subkeys*, not the
 primary signing key. I keep my primary key offline, on paper, in a vault.
@@ -464,7 +457,7 @@ need to kill `gpg-agent` or `ssh-agent` or hotplug the device (so far).
 This only works in Chromium so far, but hopefully mobile apps will start to
 adopt it in the future.
 
-# <a href="misc"></a> Miscellaneous bits
+# <a href="misc">Miscellaneous bits</a>
 
 If you use a signing *subkey* like me, and you prefer to use it for most common
 signing operations, you might want it to be the default key. Unfortunately
