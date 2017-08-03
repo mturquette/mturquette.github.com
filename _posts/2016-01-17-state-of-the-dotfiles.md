@@ -14,7 +14,6 @@ tags: env, sotdf
 1. [Email is kind of a big deal. How I filter, label and
    work](/2016/01/18/how-i-email.html)
 1. [Yubikey management for 2FA, SSH, GPG and disk encryption](/2017/08/03/yubikey4-gpg-ssh-u2f.html)
-1. Pass, Keychain, GitHub and the death of cleartext passwords
 1. Ghar: consistent, rapid deployment of UNIX dotfiles
 1. Fish, Oh-my-fish and POWERLINE ALL THE THINGS
 1. Tricks & tips: happy cron jobs, reusing dotfiles across OS X & Linux
