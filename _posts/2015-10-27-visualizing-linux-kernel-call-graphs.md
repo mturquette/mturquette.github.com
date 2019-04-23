@@ -85,7 +85,7 @@ If you do not have the veritable [Graphviz](http://graphviz.org/) suite installe
 sudo apt-get install graphviz
 ```
 
-This gives us the `dot` application for generating simple images from well-formated data. To create an SVG of all of the core files for the cpufreq subsystem we must feed the data into `dot`. Using the same command as above, we'll pipe the data into dot:
+This gives us the `dot` application for generating simple images from well-formated data. To create an SVG of all of the core files for the cpufreq subsystem we must feed the data into `dot`. Using the same command as above, we'll pipe the data into `dot`:
 
 ```
 $ egypt /home/mturquette/src/linux/drivers/cpufreq/cpufreq.c.170r.expand \
