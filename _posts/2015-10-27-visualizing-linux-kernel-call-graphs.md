@@ -43,7 +43,7 @@ Now we need to visualize this data.
 
 ```
 wget http://www.gson.org/egypt/download/egypt-1.10.tar.gz
-tar -xzf http://www.gson.org/egypt/download/egypt-1.10.tar.gz
+tar -xzf egypt-1.10.tar.gz
 cd egypt-1.10
 perl Makefile.PL
 make
