@@ -1,0 +1,9 @@
+{
+  "subject": "acct:mturquette@deferred.io",
+  "links": [
+    {
+      "rel": "http://openid.net/specs/connect/1.0/issuer",
+      "href": "https://github-xna8lo.us1.zitadel.cloud"
+    }
+  ]
+}
