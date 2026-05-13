@@ -11,3 +11,6 @@ github_username:  mturquette
 
 # Build settings
 markdown: kramdown
+
+# OpenID Connect
+include: [".well-known"]
